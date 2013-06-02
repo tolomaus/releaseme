@@ -52,3 +52,8 @@ gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.1.0"
 gem "gibbon", ">= 0.4.2"
 gem "selenium-webdriver", "~> 2.32.1"
+gem "quiet_assets", ">= 1.0.2", :group => :development
+gem "figaro", ">= 0.6.3"
+gem "better_errors", ">= 0.7.2", :group => :development
+gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
+gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
