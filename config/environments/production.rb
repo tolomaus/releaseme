@@ -61,7 +61,7 @@ Releaseme::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'releaseme.be' }
+  config.action_mailer.default_url_options = { :host => SETTINGS[:domain] }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
@@ -70,9 +70,9 @@ Releaseme::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: "releaseme.be",
+  address: SETTINGS[:smtp_server],
+      port: SETTINGS[:smtp_port],
+      domain: SETTINGS[:domain],
       authentication: "plain",
       enable_starttls_auto: true,
       user_name: ENV["GMAIL_USERNAME"],
