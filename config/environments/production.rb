@@ -61,23 +61,23 @@ Releaseme::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => SETTINGS[:domain] }
+  # config.action_mailer.default_url_options = { :host => $global_org.domain }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
-  config.action_mailer.smtp_settings = {
-  address: SETTINGS[:smtp_server],
-      port: SETTINGS[:smtp_port],
-      domain: SETTINGS[:domain],
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"]
-  }
+  #config.action_mailer.smtp_settings = {
+  #address: SETTINGS[:smtp_server],
+  #    port: SETTINGS[:smtp_port],
+  #    domain: SETTINGS[:domain],
+  #    authentication: "plain",
+  #    enable_starttls_auto: true,
+  #    user_name: ENV["GMAIL_USERNAME"],
+  #    password: ENV["GMAIL_PASSWORD"]
+  #}
 
 
 

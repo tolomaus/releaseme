@@ -3,11 +3,13 @@ require 'spec_helper'
 describe User do
 
   before(:each) do
+    org = FactoryGirl.create(:organization)
     @attr = {
-      :name => "Example User",
-      :email => "user@example.com",
-      :password => "changeme",
-      :password_confirmation => "changeme"
+        :name => "Example User",
+        :email => "user@example.com",
+        :organization_id => org.id,
+        :password => "changeme",
+        :password_confirmation => "changeme",
     }
   end
 

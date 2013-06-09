@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
+
+    @user.skip_reconfirmation! unless $settings.email_enabled?
+
     if @user.update_attributes(params[:user], :as => :admin)
       redirect_to users_path, :notice => "User updated."
     else

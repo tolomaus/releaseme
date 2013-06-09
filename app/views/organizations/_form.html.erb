@@ -1,0 +1,17 @@
+<%= simple_form_for(@organization) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email_address %>
+    <%= f.input :smtp_username %>
+    <%= f.input :smtp_password %>
+    <%= f.input :smtp_server %>
+    <%= f.input :smtp_port %>
+    <%= f.input :global %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

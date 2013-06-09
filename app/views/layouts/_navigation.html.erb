@@ -1,4 +1,4 @@
-<%= link_to SETTINGS[:app_name], root_path, :class => 'brand' %>
+<%= link_to $settings.app_name, root_path, :class => 'brand' %>
 <ul class="nav">
   <% if user_signed_in? %>
     <li>
@@ -13,12 +13,12 @@
     <li>
     <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
-    <% if current_user.has_role? :admin %>
+    <% if current_user.has_role? :global_admin %>
       <li>
       <%= link_to 'Admin', users_path %>
       </li>
     <% end %>
-  <% else %>
+  <% elsif $settings.multi_org_enabled? && $settings.email_enabled? %>
     <li>
     <%= link_to 'Sign up', new_user_registration_path %>
     </li>

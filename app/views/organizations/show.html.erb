@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%= @organization.email_address %>
+</p>
+
+<p>
+  <b>Smtp username:</b>
+  <%= @organization.smtp_username %>
+</p>
+
+<p>
+  <b>Smtp password:</b>
+  <%= @organization.smtp_password %>
+</p>
+
+<p>
+  <b>Smtp server:</b>
+  <%= @organization.smtp_server %>
+</p>
+
+<p>
+  <b>Smtp port:</b>
+  <%= @organization.smtp_port %>
+</p>
+
+<p>
+  <b>Is global:</b>
+  <%= @organization.global %>
+</p>
+
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>

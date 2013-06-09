@@ -1,4 +1,7 @@
 Releaseme::Application.routes.draw do
+  resources :organizations
+
+
   authenticated :user do
     root :to => 'home#index'
   end

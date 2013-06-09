@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602210940) do
+ActiveRecord::Schema.define(:version => 20130609193823) do
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +29,20 @@ ActiveRecord::Schema.define(:version => 20130602210940) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "settings", :force => true do |t|
+    t.string   "smtp_username"
+    t.string   "smtp_password"
+    t.string   "smtp_server"
+    t.integer  "smtp_port"
+    t.boolean  "email_enabled",     :default => false, :null => false
+    t.boolean  "multi_org_enabled", :default => false, :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "domain"
+    t.string   "email_address"
+    t.string   "app_name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -42,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130602210940) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "organization_id",                        :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
