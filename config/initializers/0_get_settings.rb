@@ -1,5 +1,3 @@
-
-
 if ActiveRecord::Base.connection.tables.include?('settings')
   # there are no tables when the db schema is loaded for the first time with rake db:migrate
   $settings = Setting.first
