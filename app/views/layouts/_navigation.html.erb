@@ -1,26 +1,58 @@
-<%= link_to $settings.app_name, root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
-    </li>
+<%= link_to root_path, :class => 'brand' do %>
+  <%=	$settings.app_name %>
+  <% unless Rails.env.production? %>
+    <small>[<%=	Rails.env %>]</small>
   <% end %>
+<% end %>
+<ul class="nav pull-right">
   <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-user"></i>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            <%= current_user.name || current_user.email %></small>
+          <% end %>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <%= link_to destroy_user_session_path, :method=>'delete' do %>
+            <i class="icon-off"></i> Sign out
+          <% end %>
+        </li>
+      </ul>
     </li>
     <% if current_user.has_role? :global_admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-cog"></i>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <li>
+            <%= link_to 'Users', users_path %>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to edit_setting_path(Setting.first) do %>
+              <i class="icon-wrench"></i> Settings
+            <% end %>
+          </li>
+        </ul>
       </li>
     <% end %>
-  <% elsif $settings.multi_org_enabled? && $settings.email_enabled? %>
+  <% else %>
     <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
     </li>
+    <% if $settings.multi_org_enabled? && $settings.email_enabled? %>
+      <li class="divider-vertical"></li>
+      <li>
+      <%= link_to 'Sign up', new_user_registration_path %>
+      </li>
+    <% end %>
   <% end %>
 </ul>

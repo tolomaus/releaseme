@@ -10,9 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require_tree .
 $('document').ready(function() {
 
@@ -31,39 +31,9 @@ $('document').ready(function() {
       data: dataString,
       success: function(data) {
         $('#request-invite').html(data);
-        loadSocial();
       }
     });
     return false;
   });
 
 })
-
-// load social sharing scripts if the page includes a Twitter "share" button
-function loadSocial() {
-
-    //Twitter
-    if (typeof (twttr) != 'undefined') {
-      twttr.widgets.load();
-    } else {
-      $.getScript('http://platform.twitter.com/widgets.js');
-    }
-
-    //Facebook
-    if (typeof (FB) != 'undefined') {
-      FB.init({ status: true, cookie: true, xfbml: true });
-    } else {
-      $.getScript("http://connect.facebook.net/en_US/all.js#xfbml=1", function () {
-        FB.init({ status: true, cookie: true, xfbml: true });
-      });
-    }
-
-    //Google+
-    if (typeof (gapi) != 'undefined') {
-      $(".g-plusone").each(function () {
-        gapi.plusone.render($(this).get(0));
-      });
-    } else {
-      $.getScript('https://apis.google.com/js/plusone.js');
-    }
-}

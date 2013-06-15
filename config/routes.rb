@@ -1,5 +1,6 @@
 Releaseme::Application.routes.draw do
   resources :organizations
+  resources :settings
 
 
   authenticated :user do

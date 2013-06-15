@@ -4,9 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
 
-    resource.add_role(:admin)
-    resource.organization = Organization.create!({:name => "default"})
-
     resource.skip_confirmation! unless $settings.email_enabled?
 
     if resource.save
@@ -44,6 +41,12 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       respond_with resource
     end
+  end
+
+  def build_resource(hash=nil)
+    super.build_resource(hash)
+    resource.add_role(:admin)
+    resource.organization = Organization.create!({:name => "default"})
   end
 
   protected

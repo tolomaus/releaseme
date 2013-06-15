@@ -20,17 +20,10 @@ if User.count == 0
   puts 'Creating the settings ...'
   settings = Setting.new
   settings.app_name = "ReleaseMe"
-  unless Rails.env.production?
-    settings.app_name += " [#{Rails.env}]"
-  end
   settings.domain = Rails.env.production? ? "releaseme.be" : "localhost:3000"
   settings.email_enabled = false
   settings.email_address = "ReleaseMe <info@releaseme.be>"
   settings.save!
-  # settings.smtp_username = "***" # set it via the GUI
-  # settings.smtp_password = "***" # set it via the GUI
-  # settings.smtp_server = "smtp.gmail.com"
-  # settings.smtp_port = "587"
 
   puts 'Creating the organization ...'
   org = Organization.new
