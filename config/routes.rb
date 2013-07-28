@@ -1,7 +1,14 @@
 Releaseme::Application.routes.draw do
+  resources :applications do
+    resources :components
+  end
+
+  resources :integrations do
+    get 'edit_mappings', on: :member
+  end
+
   resources :organizations
   resources :settings
-
 
   authenticated :user do
     root :to => 'home#index'

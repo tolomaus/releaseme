@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :admin
       can :manage, Organization
+      can :manage, Integration
     end
     # Define abilities for the passed in user here. For example:
     #

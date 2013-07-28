@@ -4,6 +4,14 @@
     <small>[<%=	Rails.env %>]</small>
   <% end %>
 <% end %>
+<% if user_signed_in? %>
+  <ul class="nav">
+    <li>
+      <%= link_to 'Applications', applications_path %>
+    </li>
+  </ul>
+<% end %>
+
 <ul class="nav pull-right">
   <% if user_signed_in? %>
     <li class="dropdown">
@@ -14,7 +22,7 @@
       <ul class="dropdown-menu">
         <li>
           <%= link_to edit_user_registration_path do %>
-            <%= current_user.name || current_user.email %></small>
+            <%= current_user.name || current_user.email %>
           <% end %>
         </li>
         <li class="divider"></li>
@@ -25,7 +33,7 @@
         </li>
       </ul>
     </li>
-    <% if current_user.has_role? :global_admin %>
+    <% if current_user.has_role? :admin %>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
           <i class="icon-cog"></i>
@@ -33,14 +41,19 @@
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <li>
-            <%= link_to 'Users', users_path %>
+            <%= link_to 'Integrations', integrations_path %>
           </li>
-          <li class="divider"></li>
-          <li>
-            <%= link_to edit_setting_path(Setting.first) do %>
-              <i class="icon-wrench"></i> Settings
-            <% end %>
-          </li>
+          <% if current_user.has_role? :global_admin %>
+            <li>
+              <%= link_to 'Users', users_path %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to edit_setting_path(Setting.first) do %>
+                <i class="icon-wrench"></i> Settings
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </li>
     <% end %>

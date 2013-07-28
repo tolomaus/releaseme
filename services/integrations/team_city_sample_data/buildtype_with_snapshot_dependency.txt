@@ -1,0 +1,223 @@
+http://localhost:8080/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_CreateRelease
+
+
+
+    {
+       "id": "InstallationTestWebApp_CreateRelease",
+       "name": "Create release",
+       "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_CreateRelease",
+       "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_CreateRelease",
+       "description": "",
+       "paused": false,
+       "project":
+       {
+           "id": "InstallationTestWebApp",
+           "name": "InstallationTest web app",
+           "href": "/httpAuth/app/rest/projects/id:InstallationTestWebApp"
+       },
+       "builds":
+       {
+           "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_CreateRelease/builds/"
+       },
+       "vcs-root-entries":
+       {
+           "vcs-root-entry":
+           [
+           ]
+       },
+       "settings":
+       {
+           "property":
+           [
+               {
+                   "name": "allowExternalStatus",
+                   "value": "true"
+               },
+               {
+                   "name": "artifactRules"
+               },
+               {
+                   "name": "buildNumberCounter",
+                   "value": "24"
+               },
+               {
+                   "name": "buildNumberPattern",
+                   "value": "%dep.InstallationTestWebApp_ContinuousIntegration.build.number%"
+               },
+               {
+                   "name": "checkoutDirectory"
+               },
+               {
+                   "name": "checkoutMode",
+                   "value": "MANUAL"
+               },
+               {
+                   "name": "cleanBuild",
+                   "value": "false"
+               },
+               {
+                   "name": "enableHangingBuildsDetection",
+                   "value": "true"
+               },
+               {
+                   "name": "executionTimeoutMin",
+                   "value": "0"
+               },
+               {
+                   "name": "maximumNumberOfBuilds",
+                   "value": "0"
+               },
+               {
+                   "name": "shouldFailBuildIfTestsFailed",
+                   "value": "true"
+               },
+               {
+                   "name": "shouldFailBuildOnAnyErrorMessage",
+                   "value": "false"
+               },
+               {
+                   "name": "shouldFailBuildOnBadExitCode",
+                   "value": "true"
+               },
+               {
+                   "name": "shouldFailBuildOnOOMEOrCrash",
+                   "value": "true"
+               },
+               {
+                   "name": "showDependenciesChanges",
+                   "value": "true"
+               },
+               {
+                   "name": "vcsLabelingBranchFilter",
+                   "value": "+:"
+               }
+           ]
+       },
+       "parameters":
+       {
+           "property":
+           [
+           ]
+       },
+       "steps":
+       {
+           "step":
+           [
+               {
+                   "id": "RUNNER_4",
+                   "name": "Create release",
+                   "type": "octopus.create.release",
+                   "properties":
+                   {
+                       "property":
+                       [
+                           {
+                               "name": "octopus_host",
+                               "value": "http://deployserver/"
+                           },
+                           {
+                               "name": "octopus_project_name",
+                               "value": "%env.TEAMCITY_PROJECT_NAME%"
+                           },
+                           {
+                               "name": "octopus_releasenumber",
+                               "value": "%build.number%"
+                           },
+                           {
+                               "name": "octopus_waitfordeployments",
+                               "value": "true"
+                           },
+                           {
+                               "name": "teamcity.step.mode",
+                               "value": "default"
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       "features":
+       {
+           "feature":
+           [
+           ]
+       },
+       "triggers":
+       {
+           "trigger":
+           [
+               {
+                   "id": "TRIGGER_2",
+                   "type": "buildDependencyTrigger",
+                   "properties":
+                   {
+                       "property":
+                       [
+                           {
+                               "name": "afterSuccessfulBuildOnly",
+                               "value": "true"
+                           },
+                           {
+                               "name": "dependsOn",
+                               "value": "InstallationTestWebApp_ContinuousIntegration"
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       "snapshot-dependencies":
+       {
+           "snapshot-dependency":
+           [
+               {
+                   "id": "InstallationTestWebApp_ContinuousIntegration",
+                   "type": "snapshot_dependency",
+                   "properties":
+                   {
+                       "property":
+                       [
+                           {
+                               "name": "run-build-if-dependency-failed",
+                               "value": "false"
+                           },
+                           {
+                               "name": "run-build-on-the-same-agent",
+                               "value": "true"
+                           },
+                           {
+                               "name": "take-started-build-with-same-revisions",
+                               "value": "true"
+                           },
+                           {
+                               "name": "take-successful-builds-only",
+                               "value": "true"
+                           }
+                       ]
+                   },
+                   "source-buildType":
+                   {
+                       "id": "InstallationTestWebApp_ContinuousIntegration",
+                       "name": "Continuous integration",
+                       "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_ContinuousIntegration",
+                       "projectName": "InstallationTest web app",
+                       "projectId": "InstallationTestWebApp",
+                       "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_ContinuousIntegration"
+                   }
+               }
+           ]
+       },
+       "artifact-dependencies":
+       {
+           "artifact-dependency":
+           [
+           ]
+       },
+       "agent-requirements":
+       {
+           "agent-requirement":
+           [
+           ]
+       }
+    }
+

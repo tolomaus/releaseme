@@ -1,0 +1,23 @@
+http://localhost:8080/httpAuth/app/rest/changes?build=id:139
+
+
+
+    {
+       "count": 2,
+       "change":
+       [
+           {
+               "id": 35,
+               "version": "572cbd5ce6f50524401aad8964bbc05aaad0dbd9",
+               "href": "/httpAuth/app/rest/changes/id:35",
+               "webLink": "http://buildserver:8080/viewModification.html?modId=35&personal=false"
+           },
+           {
+               "id": 34,
+               "version": "94dd2678b44576b3461ea901125cbf9ea27d4fd2",
+               "href": "/httpAuth/app/rest/changes/id:34",
+               "webLink": "http://buildserver:8080/viewModification.html?modId=34&personal=false"
+           }
+       ]
+    }
+

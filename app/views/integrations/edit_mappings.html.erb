@@ -1,0 +1,16 @@
+<%= simple_form_for(@integration, :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors @integration %>
+
+  <div class="validation-error"></div>
+
+  <div class="form-inputs">
+    <input id="edit_mappings" name="edit_mappings" type="hidden" value="true" />
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.button :submit, "Save", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

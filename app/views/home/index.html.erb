@@ -1,1 +1,19 @@
-<h3>Home</h3>
+<table class="table table-condensed">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Source</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @applications.each do |provider_type, apps_by_pt| %>
+    <% apps_by_pt.each do |app| %>
+      <tr>
+        <td><%= link_to app.name, app.href %></td>
+        <td><%= provider_type %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+

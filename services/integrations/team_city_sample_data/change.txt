@@ -1,0 +1,40 @@
+http://localhost:8080/httpAuth/app/rest/changes/id:34
+
+
+
+    {
+       "username": "niek.bartholomeus",
+       "date": "20130713T224359+0200",
+       "comment": "Corrected the bug 1 ",
+       "user":
+       {
+           "username": "niek",
+           "name": "Niek Bartholomeus",
+           "id": 1,
+           "href": "/httpAuth/app/rest/users/id:1"
+       },
+       "files":
+       {
+           "file":
+           [
+               {
+                   "before-revision": "a1887f3696461ece4750e61df6a095a3034cea9c",
+                   "after-revision": "94dd2678b44576b3461ea901125cbf9ea27d4fd2",
+                   "file": "InstallationTest/Controllers/HomeController.cs",
+                   "relative-file": "InstallationTest/Controllers/HomeController.cs"
+               }
+           ]
+       },
+       "vcsRootInstance":
+       {
+           "id": "2",
+           "vcs-root-id": "GitHub",
+           "name": "GitHub",
+           "href": "/httpAuth/app/rest/vcs-root-instances/id:2"
+       },
+       "id": 34,
+       "version": "94dd2678b44576b3461ea901125cbf9ea27d4fd2",
+       "href": "/httpAuth/app/rest/changes/id:34",
+       "webLink": "http://buildserver:8080/viewModification.html?modId=34&personal=false"
+    }
+

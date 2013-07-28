@@ -1,0 +1,98 @@
+http://localhost:8080/httpAuth/app/rest/builds/id:139
+
+
+
+    {
+       "id": 139,
+       "number": "1.0.0.51",
+       "status": "SUCCESS",
+       "href": "/httpAuth/app/rest/builds/id:139",
+       "webUrl": "http://buildserver:8080/viewLog.html?buildId=139&buildTypeId=InstallationTestWebApp_ContinuousIntegration",
+       "personal": false,
+       "history": false,
+       "pinned": false,
+       "statusText": "Tests passed: 1",
+       "buildType":
+       {
+           "id": "InstallationTestWebApp_ContinuousIntegration",
+           "name": "Continuous integration",
+           "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_ContinuousIntegration",
+           "projectName": "InstallationTest web app",
+           "projectId": "InstallationTestWebApp",
+           "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_ContinuousIntegration"
+       },
+       "startDate": "20130713T230422+0200",
+       "finishDate": "20130713T230431+0200",
+       "agent":
+       {
+           "name": "win2008R2build",
+           "id": 1,
+           "href": "/httpAuth/app/rest/agents/id:1"
+       },
+       "tags":
+       {
+           "tag":
+           [
+           ]
+       },
+       "properties":
+       {
+           "property":
+           [
+               {
+                   "name": "env.EnableNuGetPackageRestore",
+                   "value": "true"
+               }
+           ]
+       },
+       "snapshot-dependencies":
+       {
+           "count": 0,
+           "build":
+           [
+           ]
+       },
+       "artifact-dependencies":
+       {
+           "count": 0,
+           "build":
+           [
+           ]
+       },
+       "revisions":
+       {
+           "revision":
+           [
+               {
+                   "version": "572cbd5ce6f50524401aad8964bbc05aaad0dbd9",
+                   "vcs-root-instance":
+                   {
+                       "id": "2",
+                       "vcs-root-id": "GitHub",
+                       "name": "GitHub",
+                       "href": "/httpAuth/app/rest/vcs-root-instances/id:2"
+                   }
+               }
+           ]
+       },
+       "triggered":
+       {
+           "type": "vcs",
+           "details": "jetbrains.git",
+           "date": "20130713T224513+0200"
+       },
+       "changes":
+       {
+           "count": 2,
+           "href": "/httpAuth/app/rest/changes?build=id:139"
+       },
+       "relatedIssues":
+       {
+           "href": "/httpAuth/app/rest/builds/id:139/relatedIssues"
+       },
+       "artifacts":
+       {
+           "href": "/httpAuth/app/rest/builds/id:139/artifacts/children"
+       }
+    }
+

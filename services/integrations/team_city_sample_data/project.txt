@@ -1,0 +1,93 @@
+http://localhost:8080/httpAuth/app/rest/projects/id:InstallationTestWebApp
+
+
+    {
+       "id": "InstallationTestWebApp",
+       "name": "InstallationTest web app",
+       "href": "/httpAuth/app/rest/projects/id:InstallationTestWebApp",
+       "description": "",
+       "archived": false,
+       "webUrl": "http://buildserver:8080/project.html?projectId=InstallationTestWebApp",
+       "parentProject":
+       {
+           "id": "InstallationTest",
+           "name": "InstallationTest",
+           "href": "/httpAuth/app/rest/projects/id:InstallationTest"
+       },
+       "buildTypes":
+       {
+           "buildType":
+           [
+               {
+                   "id": "InstallationTestWebApp_ContinuousIntegration",
+                   "name": "Continuous integration",
+                   "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_ContinuousIntegration",
+                   "projectName": "InstallationTest web app",
+                   "projectId": "InstallationTestWebApp",
+                   "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_ContinuousIntegration"
+               },
+               {
+                   "id": "InstallationTestWebApp_CreateRelease",
+                   "name": "Create release",
+                   "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_CreateRelease",
+                   "projectName": "InstallationTest web app",
+                   "projectId": "InstallationTestWebApp",
+                   "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_CreateRelease"
+               },
+               {
+                   "id": "InstallationTestWebApp_DeployToProduction",
+                   "name": "Deploy to Production",
+                   "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_DeployToProduction",
+                   "projectName": "InstallationTest web app",
+                   "projectId": "InstallationTestWebApp",
+                   "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_DeployToProduction"
+               },
+               {
+                   "id": "InstallationTestWebApp_RunIntegrationTests",
+                   "name": "Run integration tests",
+                   "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_RunIntegrationTests",
+                   "projectName": "InstallationTest web app",
+                   "projectId": "InstallationTestWebApp",
+                   "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_RunIntegrationTests"
+               },
+               {
+                   "id": "InstallationTestWebApp_RunSeleniumTests",
+                   "name": "Run selenium tests",
+                   "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_RunSeleniumTests",
+                   "projectName": "InstallationTest web app",
+                   "projectId": "InstallationTestWebApp",
+                   "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_RunSeleniumTests"
+               }
+           ]
+       },
+       "templates":
+       {
+           "buildType":
+           [
+               {
+                   "id": "btTemplate2",
+                   "name": "Octopus promote",
+                   "href": "/httpAuth/app/rest/buildTypes/id:btTemplate2",
+                   "projectName": "InstallationTest web app",
+                   "projectId": "InstallationTestWebApp"
+               }
+           ]
+       },
+       "parameters":
+       {
+           "property":
+           [
+           ]
+       },
+       "vcsRoots":
+       {
+           "href": "/httpAuth/app/rest/vcs-roots?locator=project:(id:InstallationTestWebApp)"
+       },
+       "projects":
+       {
+           "project":
+           [
+           ]
+       }
+    }
+

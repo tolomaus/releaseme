@@ -1,11 +1,9 @@
-<div class="row">
-  <div class="span6 offset3">
-    <h3>Settings</h3>
-    <%= simple_form_for(@setting, :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
-      <%= f.error_notification %>
-      <%= display_base_errors @setting %>
+  <%= simple_form_for(@setting, :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+    <%= display_base_errors @setting %>
 
-      <%= f.input :app_name, :autofocus => true, :required => true %>
+    <div class="form-inputs">
+      <%= f.input :app_name, :autofocus => true %>
       <%= f.input :email_enabled %>
       <%= f.input :domain, placeholder: 'your_domain.com' %>
       <%= f.input :email_address, placeholder: 'your_username@yourdomain.com' %>
@@ -13,11 +11,10 @@
       <%= f.input :smtp_port, placeholder: 'E.g. 587' %>
       <%= f.input :smtp_username, placeholder: 'E.g. user@gmail.com' %>
       <%= f.input :smtp_password, placeholder: 'Your gmail password', :hint => 'We only need the password when you want to update it' %>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.button :submit, 'Update', :class => 'btn btn-primary' %>
-        </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.button :submit, 'Update', :class => 'btn btn-primary' %>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
+  <% end %>

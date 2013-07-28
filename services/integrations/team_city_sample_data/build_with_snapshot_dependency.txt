@@ -1,0 +1,93 @@
+http://localhost:8080/httpAuth/app/rest/builds/id:140
+
+
+
+    {
+       "id": 140,
+       "number": "1.0.0.51",
+       "status": "SUCCESS",
+       "href": "/httpAuth/app/rest/builds/id:140",
+       "webUrl": "http://buildserver:8080/viewLog.html?buildId=140&buildTypeId=InstallationTestWebApp_CreateRelease",
+       "personal": false,
+       "history": false,
+       "pinned": false,
+       "statusText": "Success",
+       "buildType":
+       {
+           "id": "InstallationTestWebApp_CreateRelease",
+           "name": "Create release",
+           "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_CreateRelease",
+           "projectName": "InstallationTest web app",
+           "projectId": "InstallationTestWebApp",
+           "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_CreateRelease"
+       },
+       "startDate": "20130713T230432+0200",
+       "finishDate": "20130713T230441+0200",
+       "agent":
+       {
+           "name": "win2008R2build",
+           "id": 1,
+           "href": "/httpAuth/app/rest/agents/id:1"
+       },
+       "tags":
+       {
+           "tag":
+           [
+           ]
+       },
+       "properties":
+       {
+           "property":
+           [
+           ]
+       },
+       "snapshot-dependencies":
+       {
+           "count": 1,
+           "build":
+           [
+               {
+                   "id": 139,
+                   "number": "1.0.0.51",
+                   "status": "SUCCESS",
+                   "buildTypeId": "InstallationTestWebApp_ContinuousIntegration",
+                   "startDate": "20130713T230422+0200",
+                   "href": "/httpAuth/app/rest/builds/id:139",
+                   "webUrl": "http://buildserver:8080/viewLog.html?buildId=139&buildTypeId=InstallationTestWebApp_ContinuousIntegration"
+               }
+           ]
+       },
+       "artifact-dependencies":
+       {
+           "count": 0,
+           "build":
+           [
+           ]
+       },
+       "revisions":
+       {
+           "revision":
+           [
+           ]
+       },
+       "triggered":
+       {
+           "type": "vcs",
+           "details": "jetbrains.git",
+           "date": "20130713T224513+0200"
+       },
+       "changes":
+       {
+           "count": 0,
+           "href": "/httpAuth/app/rest/changes?build=id:140"
+       },
+       "relatedIssues":
+       {
+           "href": "/httpAuth/app/rest/builds/id:140/relatedIssues"
+       },
+       "artifacts":
+       {
+           "href": "/httpAuth/app/rest/builds/id:140/artifacts/children"
+       }
+    }
+

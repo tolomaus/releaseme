@@ -1,0 +1,313 @@
+http://localhost:8080/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_ContinuousIntegration
+
+
+
+    {
+       "id": "InstallationTestWebApp_ContinuousIntegration",
+       "name": "Continuous integration",
+       "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_ContinuousIntegration",
+       "webUrl": "http://buildserver:8080/viewType.html?buildTypeId=InstallationTestWebApp_ContinuousIntegration",
+       "description": "Build and unit test",
+       "paused": false,
+       "project":
+       {
+           "id": "InstallationTestWebApp",
+           "name": "InstallationTest web app",
+           "href": "/httpAuth/app/rest/projects/id:InstallationTestWebApp"
+       },
+       "builds":
+       {
+           "href": "/httpAuth/app/rest/buildTypes/id:InstallationTestWebApp_ContinuousIntegration/builds/"
+       },
+       "vcs-root-entries":
+       {
+           "vcs-root-entry":
+           [
+               {
+                   "id": "GitHub",
+                   "vcs-root":
+                   {
+                       "id": "GitHub",
+                       "name": "GitHub",
+                       "href": "/httpAuth/app/rest/vcs-roots/id:GitHub"
+                   },
+                   "checkout-rules": ""
+               }
+           ]
+       },
+       "settings":
+       {
+           "property":
+           [
+               {
+                   "name": "allowExternalStatus",
+                   "value": "true"
+               },
+               {
+                   "name": "artifactRules"
+               },
+               {
+                   "name": "buildNumberCounter",
+                   "value": "52"
+               },
+               {
+                   "name": "buildNumberPattern",
+                   "value": "1.0.0.%build.counter%"
+               },
+               {
+                   "name": "checkoutDirectory"
+               },
+               {
+                   "name": "checkoutMode",
+                   "value": "ON_SERVER"
+               },
+               {
+                   "name": "cleanBuild",
+                   "value": "false"
+               },
+               {
+                   "name": "enableHangingBuildsDetection",
+                   "value": "true"
+               },
+               {
+                   "name": "executionTimeoutMin",
+                   "value": "0"
+               },
+               {
+                   "name": "maximumNumberOfBuilds",
+                   "value": "0"
+               },
+               {
+                   "name": "shouldFailBuildIfTestsFailed",
+                   "value": "true"
+               },
+               {
+                   "name": "shouldFailBuildOnAnyErrorMessage",
+                   "value": "false"
+               },
+               {
+                   "name": "shouldFailBuildOnBadExitCode",
+                   "value": "true"
+               },
+               {
+                   "name": "shouldFailBuildOnOOMEOrCrash",
+                   "value": "true"
+               },
+               {
+                   "name": "showDependenciesChanges",
+                   "value": "false"
+               },
+               {
+                   "name": "vcsLabelingBranchFilter",
+                   "value": "+:"
+               }
+           ]
+       },
+       "parameters":
+       {
+           "property":
+           [
+               {
+                   "name": "env.EnableNuGetPackageRestore",
+                   "value": "true"
+               }
+           ]
+       },
+       "steps":
+       {
+           "step":
+           [
+               {
+                   "id": "RUNNER_1",
+                   "name": "Build application",
+                   "type": "VS.Solution",
+                   "properties":
+                   {
+                       "property":
+                       [
+                           {
+                               "name": "build-file-path",
+                               "value": "InstallationTest.sln"
+                           },
+                           {
+                               "name": "msbuild.prop.Configuration",
+                               "value": "Release"
+                           },
+                           {
+                               "name": "msbuild_version",
+                               "value": "4.0"
+                           },
+                           {
+                               "name": "octopus_octopack_package_version",
+                               "value": "%build.number%"
+                           },
+                           {
+                               "name": "octopus_run_octopack",
+                               "value": "true"
+                           },
+                           {
+                               "name": "run-platform",
+                               "value": "x86"
+                           },
+                           {
+                               "name": "targets",
+                               "value": "Rebuild"
+                           },
+                           {
+                               "name": "teamcity.step.mode",
+                               "value": "default"
+                           },
+                           {
+                               "name": "toolsVersion",
+                               "value": "4.0"
+                           },
+                           {
+                               "name": "vs.version",
+                               "value": "vs2010"
+                           }
+                       ]
+                   }
+               },
+               {
+                   "id": "RUNNER_2",
+                   "name": "Run unit tests",
+                   "type": "NUnit",
+                   "properties":
+                   {
+                       "property":
+                       [
+                           {
+                               "name": "dotNetCoverage.NCover.HTMLReport.File.Sort",
+                               "value": "0"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover.HTMLReport.File.Type",
+                               "value": "1"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover.platformBitness",
+                               "value": "x86"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover.platformVersion",
+                               "value": "v2.0"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover.Reg",
+                               "value": "selected"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover3.args",
+                               "value": "//ias .*"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover3.platformBitness",
+                               "value": "x86"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover3.platformVersion",
+                               "value": "v2.0"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover3.Reg",
+                               "value": "selected"
+                           },
+                           {
+                               "name": "dotNetCoverage.NCover3.reporter.executable.args",
+                               "value": "//or FullCoverageReport:Html:{teamcity.report.path}"
+                           },
+                           {
+                               "name": "dotNetCoverage.PartCover.includes",
+                               "value": "[*]*"
+                           },
+                           {
+                               "name": "dotNetCoverage.PartCover.platformBitness",
+                               "value": "x86"
+                           },
+                           {
+                               "name": "dotNetCoverage.PartCover.platformVersion",
+                               "value": "v2.0"
+                           },
+                           {
+                               "name": "dotNetCoverage.PartCover.Reg",
+                               "value": "selected"
+                           },
+                           {
+                               "name": "dotNetTestRunner.Type",
+                               "value": "NUnit"
+                           },
+                           {
+                               "name": "nunit_enabled",
+                               "value": "checked"
+                           },
+                           {
+                               "name": "nunit_environment",
+                               "value": "v4.0"
+                           },
+                           {
+                               "name": "nunit_include",
+                               "value": "\InstallationTest.UnitTest\bin\Release\*.UnitTest.dll"
+                           },
+                           {
+                               "name": "nunit_platform",
+                               "value": "MSIL"
+                           },
+                           {
+                               "name": "nunit_version",
+                               "value": "NUnit-2.6.2"
+                           },
+                           {
+                               "name": "teamcity.step.mode",
+                               "value": "default"
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       "features":
+       {
+           "feature":
+           [
+           ]
+       },
+       "triggers":
+       {
+           "trigger":
+           [
+               {
+                   "id": "vcsTrigger",
+                   "type": "vcsTrigger",
+                   "properties":
+                   {
+                       "property":
+                       [
+                           {
+                               "name": "quietPeriodMode",
+                               "value": "DO_NOT_USE"
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       "snapshot-dependencies":
+       {
+           "snapshot-dependency":
+           [
+           ]
+       },
+       "artifact-dependencies":
+       {
+           "artifact-dependency":
+           [
+           ]
+       },
+       "agent-requirements":
+       {
+           "agent-requirement":
+           [
+           ]
+       }
+    }
+

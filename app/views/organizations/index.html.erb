@@ -1,39 +1,36 @@
-<h3>Organizations</h3>
-<div class="span12">
-  <table class="table table-condensed">
-    <thead>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email address</th>
+      <th>Smtp username</th>
+      <th>Smtp password</th>
+      <th>Smtp server</th>
+      <th>Smtp port</th>
+      <th>Is global</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organizations.each do |organization| %>
       <tr>
-        <th>Name</th>
-        <th>Email address</th>
-        <th>Smtp username</th>
-        <th>Smtp password</th>
-        <th>Smtp server</th>
-        <th>Smtp port</th>
-        <th>Is global</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <td><%= organization.name %></td>
+        <td><%= organization.email_address %></td>
+        <td><%= organization.smtp_username %></td>
+        <td><%= organization.smtp_password %></td>
+        <td><%= organization.smtp_server %></td>
+        <td><%= organization.smtp_port %></td>
+        <td><%= organization.global %></td>
+        <td><%= link_to 'Show', organization %></td>
+        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @organizations.each do |organization| %>
-        <tr>
-          <td><%= organization.name %></td>
-          <td><%= organization.email_address %></td>
-          <td><%= organization.smtp_username %></td>
-          <td><%= organization.smtp_password %></td>
-          <td><%= organization.smtp_server %></td>
-          <td><%= organization.smtp_port %></td>
-          <td><%= organization.global %></td>
-          <td><%= link_to 'Show', organization %></td>
-          <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-          <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
 
-  <br />
+<br />
 
-  <%= link_to 'New Organization', new_organization_path %>
-</div>
+<%= link_to 'New Organization', new_organization_path %>
