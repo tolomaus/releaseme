@@ -1,0 +1,21 @@
+<table class="table table-condensed">
+  <tr>
+    <th>Url</th>
+    <th>Provider type</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @integrations.each do |integration| %>
+  <tr>
+    <td><%= integration.url %></td>
+    <td><%= integration.provider_type %></td>
+    <td><%= link_to '', edit_integration_path(integration), :class => 'icon-pencil' %></td>
+    <td><%= link_to '', integration, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-trash' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '', new_integration_path, :class => 'icon-plus' %>

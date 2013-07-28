@@ -1,0 +1,21 @@
+<table class="table table-condensed">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @applications.each do |application| %>
+  <tr>
+    <td><%= application.name %></td>
+    <td><%= application.name %></td>
+    <td><%= link_to '', edit_application_path(application), :class => 'icon-pencil' %></td>
+    <td><%= link_to '', application, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-trash' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '',new_application_path, :class => 'icon-plus' %>

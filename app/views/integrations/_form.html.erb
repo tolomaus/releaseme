@@ -1,0 +1,20 @@
+<%= simple_form_for(@integration, :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors @integration %>
+
+  <div class="validation-error"></div>
+
+  <div class="form-inputs">
+    <%= f.input :provider_type, collection: @provider_types, prompt: "", :autofocus => true %>
+    <%= f.input :url %>
+    <%= f.input :username %>
+    <%= f.input :password, :autocomplete => "off", :hint => "Leave it blank if you don't want to change it" %>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.button :submit, "Save", :class => 'btn btn-primary' %>
+      <%= link_to "Mappings", edit_mappings_integration_path(@integration) unless @integration.new_record? %>
+    </div>
+  </div>
+<% end %>
