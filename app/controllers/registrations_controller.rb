@@ -43,12 +43,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def build_resource(hash=nil)
-    super.build_resource(hash)
-    resource.add_role(:admin)
-    resource.organization = Organization.create!({:name => "default"})
-  end
-
   protected
 
   def after_inactive_sign_up_path_for(resource)

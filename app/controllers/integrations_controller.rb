@@ -46,7 +46,11 @@ class IntegrationsController < ApplicationController
   # GET /integrations/1/edit
   def edit_mappings
     @integration = Integration.find(params[:id])
-
+    mapping_service = Integrations::MappingService.new(@integration.provider_type,
+                                                       @integration.url,
+                                                       @integration.username,
+                                                       @integration.password)
+    @mappings = mapping_service.propose_mappings
   end
 
   # POST /integrations

@@ -1,22 +1,15 @@
 <%= link_to root_path, :class => 'brand' do %>
   <%=	$settings.app_name %>
   <% unless Rails.env.production? %>
-    <small>[<%=	Rails.env %>]</small>
+    <!--<small>[<%=	Rails.env %>]</small>-->
   <% end %>
-<% end %>
-<% if user_signed_in? %>
-  <ul class="nav">
-    <li>
-      <%= link_to 'Applications', applications_path %>
-    </li>
-  </ul>
 <% end %>
 
 <ul class="nav pull-right">
   <% if user_signed_in? %>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="icon-user"></i>
+        <i class="icon-large icon-user"></i>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
@@ -28,7 +21,7 @@
         <li class="divider"></li>
         <li>
           <%= link_to destroy_user_session_path, :method=>'delete' do %>
-            <i class="icon-off"></i> Sign out
+            <i class="icon-off"></i>Sign out
           <% end %>
         </li>
       </ul>
@@ -36,21 +29,25 @@
     <% if current_user.has_role? :admin %>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="icon-cog"></i>
+          <i class="icon-large icon-cog"></i>
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <li>
-            <%= link_to 'Integrations', integrations_path %>
+            <%= link_to integrations_path do %>
+              <i class="icon-exchange"></i>Integrations
+            <% end %>
           </li>
           <% if current_user.has_role? :global_admin %>
             <li>
-              <%= link_to 'Users', users_path %>
+              <%= link_to users_path do %>
+                <i class="icon-group"></i>Users
+              <% end %>
             </li>
             <li class="divider"></li>
             <li>
               <%= link_to edit_setting_path(Setting.first) do %>
-                <i class="icon-wrench"></i> Settings
+                <i class="icon-wrench"></i>Settings
               <% end %>
             </li>
           <% end %>

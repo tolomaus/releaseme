@@ -1,3 +1,91 @@
+$textColor: #505050 !default;
+$navbarBrandColor: rgb(227, 76, 44);
+$navbarHeight: 60px;
+$baseLineHeight: 0px;
+$baseBorderRadius: 0px;
+$navbarBackgroundHighlight: white;
+$navbarBackground: #E1E1E1;
+$navbarLinkBackgroundActive: transparant;
+$navbarLinkBackgroundHover: transparant;
+
 @import "bootstrap";
-body { padding-top: 60px; }
+body{
+  padding-top: $navbarHeight; //needed when using a fixed navbar
+}
+.container-fluid {
+  padding: 0;
+}
+.navbar-fixed-top .navbar-inner {    //Design of the navbar
+  border: none;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@import url(http://fonts.googleapis.com/css?family=Playball);
+.navbar .brand {
+  font-size: 40px;
+  font-family: 'Playball', cursive;
+}
+.navbar .nav > li > a {
+  text-shadow: none;
+}
+.navbar .nav > li > a {    //Set the menus on the right side near the bottom of the navbar
+  margin-top: 20px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background: none;
+}
+.dropdown-menu > li > a {
+  color: $textColor;
+}
+a:focus {
+  outline: none;
+}
+
+
+
+#header ul li a {
+  font-size: 16px;
+}
+#workingarea {
+  background-color: #ffffff;
+  margin-top: 20px;
+}
+#sidebar {
+  background-color: #e2e2e2;
+  margin-top: 20px;
+}
+#sidebar ul {
+  list-style: none outside none;
+  margin: 0 0 0 0;
+  background-color: #c5c5c5;
+}
+#sidebar > ul > li.active {
+  background-color: #a3a3a3;
+}
+#sidebar > ul > li > a:hover,
+#sidebar > ul > li.active > a {
+  color: #222222;
+}
+#sidebar ul li a {
+  font-size: 16px;
+  color: $textColor;
+  display: block;
+  padding: 15px 0px 15px 15px;
+  border-bottom: 1px #c6c6c6;
+}
+#sidebar ul li a i,
+ul.dropdown-menu li a i {
+  margin-right: 15px;
+}
+a, a:hover, a:focus{
+  text-decoration: none;
+}
+small {
+  font-size: 40%;
+}
+
 @import "bootstrap-responsive";
