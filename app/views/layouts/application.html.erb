@@ -11,25 +11,19 @@
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
     <div id="header" class="container-fluid">
-      <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-          <%= render 'layouts/navigation-top' %>
-        </div>
-      </div>
+      <%= render 'layouts/navigation-top' %>
     </div>
-    <% if user_signed_in? %>
-      <div id="main" class="container-fluid" role="main">
-        <div class="row-fluid">
-          <%= render 'layouts/sidebar' %>
-          <div id="workingarea" class="span10">
-            <div class="span8 offset1">
-              <%= yield %>
-            </div>
+    <div id="main" class="container-fluid" role="main">
+      <div class="row-fluid">
+        <!--<%= render "layouts/sidebar-#{sidebar_name}" if sidebar_exists? %> -->
+        <div id="workingarea" class="span12">
+          <div class="span10 offset1">
+            <%= yield %>
           </div>
         </div>
-        <footer>
-        </footer>
       </div>
-    <% end %>
+      <footer>
+      </footer>
+    </div>
   </body>
 </html>

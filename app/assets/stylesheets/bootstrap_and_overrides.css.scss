@@ -1,91 +1,105 @@
-$textColor: #505050 !default;
-$navbarBrandColor: rgb(227, 76, 44);
-$navbarHeight: 60px;
-$baseLineHeight: 0px;
+$textColor: #525C66 !default;
+//$menuShadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+
+$navbarBrandColor: #525C66;
+$navbarHeight: 70px;
 $baseBorderRadius: 0px;
-$navbarBackgroundHighlight: white;
-$navbarBackground: #E1E1E1;
-$navbarLinkBackgroundActive: transparant;
-$navbarLinkBackgroundHover: transparant;
+$navbarBackgroundHighlight: #c9c9c9;
+$navbarBackground: #c9c9c9;
+$navbarLinkColor: #525C66;// firefox color
+$navbarLinkColorActive: #333;
+$navbarLinkColorHover: #333;
+$navbarLinkBackgroundActive: rgba(3, 14, 27, 0.1);
+$navbarLinkBackgroundHover: rgba(3, 14, 27, 0.05);
+$dropdownLinkColorHover: #333;
+$dropdownLinkColorActive: #333;
+$dropdownLinkBackgroundHover: rgba(3, 14, 27, 0.1);
+$dropdownLinkBackgroundActive: rgba(3, 14, 27, 0.05);
 
 @import "bootstrap";
 body{
-  padding-top: $navbarHeight; //needed when using a fixed navbar
+  background-color: #E5E5E5;
+  background-image: image-url("linen-lighter.png");
+  padding-top: $navbarHeight+2px; //needed when using a fixed navbar
 }
 .container-fluid {
   padding: 0;
 }
 .navbar-fixed-top .navbar-inner {    //Design of the navbar
-  border: none;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid #bbbbbb;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
   padding-left: 20px;
   padding-right: 20px;
 }
-@import url(http://fonts.googleapis.com/css?family=Playball);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700);
 .navbar .brand {
-  font-size: 40px;
-  font-family: 'Playball', cursive;
-}
-.navbar .nav > li > a {
+  font-size: 30px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  margin-right: 40px;
   text-shadow: none;
 }
-.navbar .nav > li > a {    //Set the menus on the right side near the bottom of the navbar
-  margin-top: 20px;
-  padding-top: 12px;
-  padding-bottom: 10px;
+.navbar .nav > li > a {    //Set the top menus near the bottom of the navbar
+  font-size: 18px;
+  margin-top: $navbarHeight - 25px - 18px;
+  padding: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-shadow: none;
 }
-.nav > li > a:hover,
-.nav > li > a:focus {
-  background: none;
+.navbar .nav.small > li > a {
+  font-size: 14px;
+  padding: 8px;
+  margin-top: $navbarHeight - 25px - 14px;
+}
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover,
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:focus,
+.navbar .nav > .active > a:active {
+  border-radius: 2.5px 2.5px 2.5px 2.5px;
+  background-color: rgba(3, 14, 27, 0.03);
+  box-shadow: 0 1px 1px rgba(3, 14, 27, 0.05) inset, 0 0 1px rgba(3, 14, 27, 0.1) inset;
+  & i.icon-ticket {
+    color: orange;
+  }
+  & i.icon-fontello-spread {
+    color: cornflowerblue;
+  }
+  & i.icon-calendar {
+    color: purple;
+  }
+  & i.icon-unchecked {
+    color: deeppink;
+  }
 }
 .dropdown-menu > li > a {
   color: $textColor;
 }
-a:focus {
-  outline: none;
+.nav > li > a > i,
+.dropdown-menu > li > a > i {  //leave some space between the icon and the text
+  margin-right: 10px;
 }
-
-
-
-#header ul li a {
-  font-size: 16px;
+.nav > li > a > i.notext,
+.dropdown-menu > li > a > i.notext { //but not when there is no text
+  margin-right: 0px;
 }
-#workingarea {
-  background-color: #ffffff;
-  margin-top: 20px;
-}
-#sidebar {
-  background-color: #e2e2e2;
-  margin-top: 20px;
-}
-#sidebar ul {
-  list-style: none outside none;
-  margin: 0 0 0 0;
-  background-color: #c5c5c5;
-}
-#sidebar > ul > li.active {
-  background-color: #a3a3a3;
-}
-#sidebar > ul > li > a:hover,
-#sidebar > ul > li.active > a {
-  color: #222222;
-}
-#sidebar ul li a {
-  font-size: 16px;
-  color: $textColor;
+.nav .dropdown:hover > .dropdown-menu { //show the drop down when hovering over the nav
   display: block;
-  padding: 15px 0px 15px 15px;
-  border-bottom: 1px #c6c6c6;
 }
-#sidebar ul li a i,
-ul.dropdown-menu li a i {
-  margin-right: 15px;
+.dropdown-menu {
+  border-radius: 0 0 0 0;
 }
+
+#main {
+  margin-top: 20px;
+}
+
 a, a:hover, a:focus{
+  outline: none;
   text-decoration: none;
 }
 small {
-  font-size: 40%;
+  font-size: 60%;
 }
-
 @import "bootstrap-responsive";

@@ -1,68 +1,93 @@
-<%= link_to root_path, :class => 'brand' do %>
-  <%=	$settings.app_name %>
-  <% unless Rails.env.production? %>
-    <!--<small>[<%=	Rails.env %>]</small>-->
-  <% end %>
-<% end %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <%= link_to root_path, :class => 'brand' do %>
+      <%=	$settings.app_name %>
+      <% unless Rails.env.production? %>
+        <!--<small>[<%=	Rails.env %>]</small>-->
+      <% end %>
+    <% end %>
 
-<ul class="nav pull-right">
-  <% if user_signed_in? %>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="icon-large icon-user"></i>
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-        <li>
-          <%= link_to edit_user_registration_path do %>
-            <%= current_user.name || current_user.email %>
-          <% end %>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <%= link_to destroy_user_session_path, :method=>'delete' do %>
-            <i class="icon-off"></i>Sign out
-          <% end %>
-        </li>
-      </ul>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="icon-large icon-cog"></i>
-          <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <li>
-            <%= link_to integrations_path do %>
-              <i class="icon-exchange"></i>Integrations
-            <% end %>
-          </li>
-          <% if current_user.has_role? :global_admin %>
+    <ul class="nav">
+      <li <%= controller_name == 'changes' ? 'class=active' : '' %>>
+        <%= link_to applications_path do %>
+          <i class="icon-large icon-ticket"></i>Changes
+        <% end %>
+      </li>
+      <li <%= controller_name == 'applications' ? 'class=active' : '' %>>
+        <%= link_to applications_path do %>
+          <i class="icon-large icon-fontello-spread icon-rotate-180"></i>Applications
+        <% end %>
+      </li>
+      <li <%= controller_name == 'releases' ? 'class=active' : '' %>>
+        <%= link_to applications_path do %>
+          <i class="icon-large icon-calendar"></i>Releases
+        <% end %>
+      </li>
+      <li <%= controller_name == 'environments' ? 'class=active' : '' %>>
+        <%= link_to applications_path do %>
+          <i class="icon-large icon-unchecked"></i>Environments
+        <% end %>
+      </li>
+    </ul>
+
+    <ul class="nav pull-right small">
+      <% if user_signed_in? %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-large icon-user notext"></i>
+          </a>
+          <ul class="dropdown-menu">
             <li>
-              <%= link_to users_path do %>
-                <i class="icon-group"></i>Users
+              <%= link_to edit_user_registration_path do %>
+                <%= current_user.name || current_user.email %>
               <% end %>
             </li>
             <li class="divider"></li>
             <li>
-              <%= link_to edit_setting_path(Setting.first) do %>
-                <i class="icon-wrench"></i>Settings
+              <%= link_to destroy_user_session_path, :method=>'delete' do %>
+                <i class="icon-off"></i>Sign out
               <% end %>
             </li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  <% else %>
-    <li>
-      <%= link_to 'Sign in', new_user_session_path %>
-    </li>
-    <% if $settings.multi_org_enabled? && $settings.email_enabled? %>
-      <li class="divider-vertical"></li>
-      <li>
-      <%= link_to 'Sign up', new_user_registration_path %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+          </ul>
+        </li>
+        <% if current_user.has_role? :admin %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-large icon-cog notext"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li>
+                <%= link_to integrations_path do %>
+                  <i class="icon-exchange"></i>Integrations
+                <% end %>
+              </li>
+              <% if current_user.has_role? :global_admin %>
+                <li>
+                  <%= link_to users_path do %>
+                    <i class="icon-group"></i>Users
+                  <% end %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to edit_setting_path(Setting.first) do %>
+                    <i class="icon-wrench"></i>Settings
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      <% else %>
+        <li>
+          <%= link_to 'Sign in', new_user_session_path %>
+        </li>
+        <% if $settings.multi_org_enabled? && $settings.email_enabled? %>
+          <li class="divider-vertical"></li>
+          <li>
+          <%= link_to 'Sign up', new_user_registration_path %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
