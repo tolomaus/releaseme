@@ -113,7 +113,7 @@ input[type="color"],
   }
 }
 .btn {
-      background-color: #F2F2F2;
+  background-color: #F2F2F2;
   background-image:  none;
   border-color: rgba(0, 0, 0, 0.1);
   border-radius: 2px 2px 2px 2px;
@@ -141,7 +141,10 @@ input[type="color"],
   margin-top: 20px;
 }
 #workingarea {
-
+  background-color: #f5f5f5;
+  border-radius: 1px 1px 1px 1px;
+  box-shadow: 1px 3px 4px 4px rgba(0, 0, 0, 0.15);
+  padding: 30px;
 }
 
 a, a:hover, a:focus{
@@ -151,4 +154,5 @@ a, a:hover, a:focus{
 small {
   font-size: 60%;
 }
+
 @import "bootstrap-responsive";
