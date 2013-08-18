@@ -7,28 +7,30 @@
       <% end %>
     <% end %>
 
-    <ul class="nav">
-      <li <%= controller_name == 'changes' ? 'class=active' : '' %>>
-        <%= link_to applications_path do %>
-          <i class="icon-large icon-ticket"></i>Changes
-        <% end %>
-      </li>
-      <li <%= controller_name == 'applications' ? 'class=active' : '' %>>
-        <%= link_to applications_path do %>
-          <i class="icon-large icon-fontello-spread icon-rotate-180"></i>Applications
-        <% end %>
-      </li>
-      <li <%= controller_name == 'releases' ? 'class=active' : '' %>>
-        <%= link_to applications_path do %>
-          <i class="icon-large icon-calendar"></i>Releases
-        <% end %>
-      </li>
-      <li <%= controller_name == 'environments' ? 'class=active' : '' %>>
-        <%= link_to applications_path do %>
-          <i class="icon-large icon-unchecked"></i>Environments
-        <% end %>
-      </li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="nav">
+        <li <%= controller_name == 'changes' ? 'class=active' : '' %>>
+          <%= link_to applications_path do %>
+            <i class="icon-large icon-ticket"></i>Changes
+          <% end %>
+        </li>
+        <li <%= controller_name == 'applications' ? 'class=active' : '' %>>
+          <%= link_to applications_path do %>
+            <i class="icon-large icon-fontello-spread icon-rotate-180"></i>Applications
+          <% end %>
+        </li>
+        <li <%= controller_name == 'releases' ? 'class=active' : '' %>>
+          <%= link_to applications_path do %>
+            <i class="icon-large icon-calendar"></i>Releases
+          <% end %>
+        </li>
+        <li <%= controller_name == 'environments' ? 'class=active' : '' %>>
+          <%= link_to applications_path do %>
+            <i class="icon-large icon-check-empty"></i>Environments
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
 
     <ul class="nav pull-right small">
       <% if user_signed_in? %>
