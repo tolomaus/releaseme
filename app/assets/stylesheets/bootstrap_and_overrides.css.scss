@@ -4,8 +4,8 @@ $textColor: #525C66 !default;
 $navbarBrandColor: #525C66;
 $navbarHeight: 70px;
 $baseBorderRadius: 0px;
-$navbarBackgroundHighlight: #c9c9c9;
-$navbarBackground: #c9c9c9;
+$navbarBackgroundHighlight: #e7e7e7;
+$navbarBackground: #D3D3D3;
 $navbarLinkColor: #525C66;// firefox color
 $navbarLinkColorActive: #333;
 $navbarLinkColorHover: #333;
@@ -16,7 +16,56 @@ $dropdownLinkColorActive: #333;
 $dropdownLinkBackgroundHover: rgba(3, 14, 27, 0.1);
 $dropdownLinkBackgroundActive: rgba(3, 14, 27, 0.05);
 
-@import "bootstrap";
+
+// Core variables and mixins
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+@import "bootstrap/mixins";
+
+// CSS Reset
+@import "bootstrap/reset";
+
+// Grid system and page structure
+@import "bootstrap/scaffolding";
+@import "bootstrap/grid";
+@import "bootstrap/layouts";
+
+// Base CSS
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/forms";
+@import "bootstrap/tables";
+
+// Components: common
+@import "bootstrap/dropdowns";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components: Buttons & Alerts
+@import "bootstrap/buttons";
+@import "bootstrap/button-groups";
+@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+
+// Components: Nav
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+
+// Components: Popovers
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+
+// Components: Misc
+@import "bootstrap/media";
+@import "bootstrap/labels-badges";
+@import "bootstrap/progress-bars";
+@import "bootstrap/hero-unit";
+
+// Utility classes
+@import "bootstrap/utilities"; // Has to be last to override when necessary
+
+
+
+
 body{
   background-color: #E5E5E5;
   background-image: image-url("linen-darker.png");
@@ -26,7 +75,7 @@ body{
   padding: 0;
 }
 .navbar-fixed-top .navbar-inner {    //Design of the navbar
-  border: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
   box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
   padding-left: 20px;
   padding-right: 20px;
@@ -48,15 +97,14 @@ body{
   text-shadow: none;
 }
 .navbar .nav.small > li > a {
-  font-size: 14px;
-  padding: 8px;
-  margin-top: $navbarHeight - 25px - 14px;
+  font-size: 16px;
+  margin-top: $navbarHeight - 25px - 18px;
 }
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover,
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:focus,
-.navbar .nav > .active > a:active {
+.navbar .nav > li > a:focus, .nav > li > a:focus,  //override twitter bootstrap's navbar and use the same rules for the navs outside of the navbar
+.navbar .nav > li > a:hover, .nav > li > a:hover,
+.navbar .nav > .active > a, .nav > .active > a,
+.navbar .nav > .active > a:focus, .nav > .active > a:focus,
+.navbar .nav > .active > a:active, .nav > .active > a:active {
   border-radius: 2.5px 2.5px 2.5px 2.5px;
   background-color: rgba(3, 14, 27, 0.03);
   box-shadow: 0 1px 1px rgba(3, 14, 27, 0.05) inset, 0 0 1px rgba(3, 14, 27, 0.1) inset;
@@ -73,23 +121,28 @@ body{
     color: deeppink;
   }
 }
+.dropdown-menu {
+  margin-top: 0;
+  border-radius: 2px 2px 2px 2px;
+}
+.nav .dropdown:hover > .dropdown-menu, .dropdown:hover > .dropdown-menu { //show the drop down when hovering over the nav
+  display: block;
+}
 .dropdown-menu > li > a {
   color: $textColor;
 }
-.nav > li > a > i,
-.dropdown-menu > li > a > i {  //leave some space between the icon and the text
+i {  //leave some space between the icon and the text
   margin-right: 10px;
 }
 .nav > li > a > i.notext,
 .dropdown-menu > li > a > i.notext { //but not when there is no text
   margin-right: 0px;
 }
-.nav .dropdown:hover > .dropdown-menu { //show the drop down when hovering over the nav
-  display: block;
+.navbar .nav > li > .dropdown-menu::after,
+.navbar .nav > li > .dropdown-menu::before {
+  display:none;
 }
-.dropdown-menu {
-  border-radius: 0 0 0 0;
-}
+
 textarea,
 input[type="text"],
 input[type="password"],
@@ -137,14 +190,21 @@ input[type="color"],
   @include transition(none);
 }
 
-#main {
-  margin-top: 20px;
-}
 #workingarea {
-  background-color: #f5f5f5;
+  margin-top: 10px;
+  background-color: #f9f9f9;
   border-radius: 1px 1px 1px 1px;
   box-shadow: 1px 3px 4px 4px rgba(0, 0, 0, 0.15);
-  padding: 30px;
+  > .header{
+    font-size: 18px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 1px 0 0 white;
+    line-height: 42px;
+    padding-left: 12px;
+    margin-bottom: 1px;
+  }
 }
 
 a, a:hover, a:focus{
@@ -155,4 +215,4 @@ small {
   font-size: 60%;
 }
 
-@import "bootstrap-responsive";
+//@import "bootstrap-responsive";

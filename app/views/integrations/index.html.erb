@@ -1,4 +1,36 @@
-<table class="table table-condensed">
+<div class="header">
+  <i class="icon-exchange"></i>
+  Integrations
+  <div class="dropdown">
+    <a class="dropdown-toggle pull-right" data-toggle="dropdown" href="#">
+      <i class="icon-large icon-align-justify notext"></i>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li>
+        <%= link_to new_integration_path do %>
+          <i class="icon-plus"></i>Add integration
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="content">
+  <% @integrations.each do |integration| %>
+    <div class="item">
+      <div class="header">
+        <i class="icon-exchange"></i>
+      </div>
+      <div class="content">
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+  <table class="table table-condensed">
   <tr>
     <th>Url</th>
     <th>Provider type</th>
