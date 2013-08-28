@@ -6,7 +6,8 @@
 
   <div class="validation-error"></div>
   <div class="form-inputs">
-    <%= f.input :provider_type, collection: @provider_types, prompt: "", :autofocus => true %>
+    <%= f.input :name, prompt: "testje", :autofocus => true %>
+    <%= f.input :provider_type, collection: @provider_types, prompt: "" %>
     <%= f.input :url %>
     <%= f.input :username %>
     <%= f.input :password, :autocomplete => "off", :hint => "Leave it blank if you don't want to change it" %>

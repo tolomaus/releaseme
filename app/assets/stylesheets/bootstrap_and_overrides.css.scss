@@ -3,9 +3,10 @@ $textColor: #525C66 !default;
 
 $navbarBrandColor: #525C66;
 $navbarHeight: 70px;
+$baselineHeight: 0px;
 $baseBorderRadius: 0px;
-$navbarBackgroundHighlight: #e7e7e7;
-$navbarBackground: #D3D3D3;
+$navbarBackgroundHighlight: #f7f7f7;
+$navbarBackground: #F5F5F5;
 $navbarLinkColor: #525C66;// firefox color
 $navbarLinkColorActive: #333;
 $navbarLinkColorHover: #333;
@@ -124,9 +125,14 @@ body{
 .dropdown-menu {
   margin-top: 0;
   border-radius: 2px 2px 2px 2px;
+  min-width: 0;
 }
-.nav .dropdown:hover > .dropdown-menu, .dropdown:hover > .dropdown-menu { //show the drop down when hovering over the nav
+.nav .dropdown:hover > .dropdown-menu, .dropdown:hover > .dropdown-menu { //open the dropdown menu at hover instead of click
   display: block;
+}
+.navbar .nav > li > .dropdown-menu::after,
+.navbar .nav > li > .dropdown-menu::before {  //open the dropdown menu at hover instead of click
+  display:none;
 }
 .dropdown-menu > li > a {
   color: $textColor;
@@ -134,14 +140,12 @@ body{
 i {  //leave some space between the icon and the text
   margin-right: 10px;
 }
+i.notext,
 .nav > li > a > i.notext,
-.dropdown-menu > li > a > i.notext { //but not when there is no text
+.dropdown-menu > li > a > i.notext, { //but not when there is no text
   margin-right: 0px;
 }
-.navbar .nav > li > .dropdown-menu::after,
-.navbar .nav > li > .dropdown-menu::before {
-  display:none;
-}
+
 
 textarea,
 input[type="text"],
@@ -204,6 +208,12 @@ input[type="color"],
     line-height: 42px;
     padding-left: 12px;
     margin-bottom: 1px;
+    .dropdown-toggle{
+      padding: 10px;
+    }
+    .dropdown-menu{
+      font-size: $baseFontSize;
+    }
   }
 }
 
