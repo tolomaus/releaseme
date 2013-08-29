@@ -60,7 +60,7 @@ class IntegrationsController < ApplicationController
 
     respond_to do |format|
       if @integration.save
-        format.html { redirect_to @integration, notice: 'Integration was successfully created.' }
+        format.html { redirect_to integrations_path, notice: 'Integration was successfully created.' }
         format.json { render json: @integration, status: :created, location: @integration }
       else
         format.html { render action: "new" }

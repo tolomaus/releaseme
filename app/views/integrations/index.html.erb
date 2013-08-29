@@ -1,45 +1,62 @@
 <div class="header">
   <i class="icon-exchange"></i>
   Integrations
-  <div class="dropdown pull-right">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      <i class="icon-large icon-align-justify notext"></i>
-    </a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-      <li>
-        <%= link_to new_integration_path do %>
-          <i class="icon-plus"></i>Add integration
-        <% end %>
-      </li>
-    </ul>
-  </div>
+  <ul class="nav pull-right">
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-chevron-down notext"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>
+          <%= link_to new_integration_path do %>
+            <i class="icon-plus"></i>Add
+          <% end %>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
 <div class="content">
   <% @integrations.each do |integration| %>
     <div class="item">
       <div class="header">
-        <i class="icon-exchange"></i>
         <%= integration.name || integration.provider_type %>
+        <ul class="nav pull-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-chevron-down notext"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li>
+                <%= link_to edit_integration_path(integration) do %>
+                  <i class="icon-pencil"></i>Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to integration, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-trash"></i>Delete
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
       <div class="content">
-        <p>
+        <div class="attribute">
           <b>Provider type:</b>
           <%= integration.provider_type %>
-        </p>
+        </div>
 
-        <p>
+        <div class="attribute">
           <b>Url:</b>
           <%= integration.url %>
-        </p>
+        </div>
 
-        <p>
+        <div class="attribute">
           <b>Username:</b>
           <%= integration.username %>
-        </p>
-
-        <%= link_to '', edit_integration_path(integration), :class => 'icon-pencil' %>
-        <%= link_to '', integration, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-trash' %>
+        </div>
       </div>
     </div>
   <% end %>

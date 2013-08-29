@@ -13,3 +13,46 @@
  *= require font-awesome
 */
 
+#workingarea {
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 2px 2px 2px 2px;
+  box-shadow: 1px 3px 4px 4px rgba(0, 0, 0, 0.15);
+  > .header{
+    font-size: 18px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 2px 2px 0 0;
+    line-height: 42px;
+    padding-left: 12px;
+    margin-bottom: 1px;
+    .dropdown-toggle{
+      padding: 10px;
+    }
+    .dropdown-menu{
+      font-size: 14px;
+    }
+    .nav > li > a {
+      font-size: 16px;
+    }
+  }
+  > .content {
+    border-radius: 2px 2px 2px 2px;
+    > .item {
+      margin: 20px;
+      background-color: white;
+      box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+      > .header {
+        font-size: 16px;
+        line-height: 30px;
+        padding-left: 10px;
+        .dropdown-toggle{
+          padding: 10px;
+        }
+        .dropdown-menu{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

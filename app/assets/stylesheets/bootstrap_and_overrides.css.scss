@@ -1,71 +1,26 @@
-$textColor: #525C66 !default;
+$textColor: #525c66 !default;
+$textColorActive: black;
 //$menuShadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 
-$navbarBrandColor: #525C66;
+$navbarBrandColor: $textColor;
 $navbarHeight: 70px;
 $baselineHeight: 0px;
 $baseBorderRadius: 0px;
-$navbarBackgroundHighlight: #f7f7f7;
-$navbarBackground: #F5F5F5;
-$navbarLinkColor: #525C66;// firefox color
-$navbarLinkColorActive: #333;
-$navbarLinkColorHover: #333;
-$navbarLinkBackgroundActive: rgba(3, 14, 27, 0.1);
-$navbarLinkBackgroundHover: rgba(3, 14, 27, 0.05);
-$dropdownLinkColorHover: #333;
-$dropdownLinkColorActive: #333;
+$navbarBackgroundHighlight: white;
+$navbarBackground: #e8e8e8;
+$navbarLinkColor: $textColor;
+$navbarLinkColorActive: $textColorActive;
+$navbarLinkColorHover: $textColorActive;
+$navbarLinkBackgroundActive: rgba(0,0,0,0);
+$navbarLinkBackgroundHover: rgba(0,0,0,0);
+$dropdownLinkColorHover: $textColorActive;
+$dropdownLinkColorActive: $textColorActive;
 $dropdownLinkBackgroundHover: rgba(3, 14, 27, 0.1);
 $dropdownLinkBackgroundActive: rgba(3, 14, 27, 0.05);
 
 
 // Core variables and mixins
-@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
-@import "bootstrap/mixins";
-
-// CSS Reset
-@import "bootstrap/reset";
-
-// Grid system and page structure
-@import "bootstrap/scaffolding";
-@import "bootstrap/grid";
-@import "bootstrap/layouts";
-
-// Base CSS
-@import "bootstrap/type";
-@import "bootstrap/code";
-@import "bootstrap/forms";
-@import "bootstrap/tables";
-
-// Components: common
-@import "bootstrap/dropdowns";
-@import "bootstrap/wells";
-@import "bootstrap/close";
-
-// Components: Buttons & Alerts
-@import "bootstrap/buttons";
-@import "bootstrap/button-groups";
-@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
-
-// Components: Nav
-@import "bootstrap/navs";
-@import "bootstrap/navbar";
-
-// Components: Popovers
-@import "bootstrap/modals";
-@import "bootstrap/tooltip";
-@import "bootstrap/popovers";
-
-// Components: Misc
-@import "bootstrap/media";
-@import "bootstrap/labels-badges";
-@import "bootstrap/progress-bars";
-@import "bootstrap/hero-unit";
-
-// Utility classes
-@import "bootstrap/utilities"; // Has to be last to override when necessary
-
-
-
+@import "bootstrap";
 
 body{
   background-color: #E5E5E5;
@@ -97,7 +52,7 @@ body{
   margin-right: 2px;
   text-shadow: none;
 }
-.navbar .nav.small > li > a {
+.navbar .nav.small > li > a {   //the small admin and profile icons on the top left
   font-size: 16px;
   margin-top: $navbarHeight - 25px - 18px;
 }
@@ -106,9 +61,7 @@ body{
 .navbar .nav > .active > a, .nav > .active > a,
 .navbar .nav > .active > a:focus, .nav > .active > a:focus,
 .navbar .nav > .active > a:active, .nav > .active > a:active {
-  border-radius: 2.5px 2.5px 2.5px 2.5px;
-  background-color: rgba(3, 14, 27, 0.03);
-  box-shadow: 0 1px 1px rgba(3, 14, 27, 0.05) inset, 0 0 1px rgba(3, 14, 27, 0.1) inset;
+  box-shadow: none;
   & i.icon-ticket {
     color: orange;
   }
@@ -122,6 +75,10 @@ body{
     color: deeppink;
   }
 }
+.pull-right > li > .dropdown-menu {
+  left: auto;
+  right: 0;
+}
 .dropdown-menu {
   margin-top: 0;
   border-radius: 2px 2px 2px 2px;
@@ -134,8 +91,14 @@ body{
 .navbar .nav > li > .dropdown-menu::before {  //open the dropdown menu at hover instead of click
   display:none;
 }
+.nav > li > a,
 .dropdown-menu > li > a {
   color: $textColor;
+}
+.nav > li > a:focus,
+.nav > li > a:hover {
+  color: $textColorActive;
+  background-color: transparent;
 }
 i {  //leave some space between the icon and the text
   margin-right: 10px;
@@ -194,29 +157,6 @@ input[type="color"],
   @include transition(none);
 }
 
-#workingarea {
-  margin-top: 10px;
-  background-color: #f9f9f9;
-  border-radius: 1px 1px 1px 1px;
-  box-shadow: 1px 3px 4px 4px rgba(0, 0, 0, 0.15);
-  > .header{
-    font-size: 18px;
-    background-color: #f4f4f4;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 2px 2px 0 0;
-    box-shadow: 0 1px 0 0 white;
-    line-height: 42px;
-    padding-left: 12px;
-    margin-bottom: 1px;
-    .dropdown-toggle{
-      padding: 10px;
-    }
-    .dropdown-menu{
-      font-size: $baseFontSize;
-    }
-  }
-}
-
 a, a:hover, a:focus{
   outline: none;
   text-decoration: none;
@@ -225,4 +165,4 @@ small {
   font-size: 60%;
 }
 
-//@import "bootstrap-responsive";
+@import "bootstrap-responsive";

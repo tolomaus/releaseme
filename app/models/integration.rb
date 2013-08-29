@@ -1,5 +1,5 @@
 class Integration < ActiveRecord::Base
-  attr_accessible :url, :provider_type, :username, :password
+  attr_accessible :name, :url, :provider_type, :username, :password
 
   validates :url, presence: true
   validates :provider_type, presence: true
