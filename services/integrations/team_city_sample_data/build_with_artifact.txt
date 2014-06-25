@@ -1,7 +1,6 @@
 http://localhost:8080/httpAuth/app/rest/builds/id:139
 
 
-
     {
        "id": 139,
        "number": "1.0.0.51",
