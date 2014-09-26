@@ -12,3 +12,4 @@ before_script:
 # write the rspec tests to the output dir
 script:
   - rspec -f JUnit -o shippable/testresults/results.xml
+commit_container: tolomaus/releaseme
