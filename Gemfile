@@ -31,4 +31,4 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "rest-client"
 gem 'teamcity-ruby-client', :git => 'https://github.com/jperry/teamcity-ruby-client.git'
-gem 'rspec_junit_formatter'
+gem 'yarjuf'
