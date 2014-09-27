@@ -1,0 +1,33 @@
+development:
+  encoding: unicode
+  adapter: postgresql
+  username: postgres
+  port: 5432
+  host: localhost
+  database: releaseme_dev
+  password: postgres
+
+test: &test
+  encoding: unicode
+  adapter: postgresql
+  username: postgres
+  port: 5432
+  host: localhost
+#  database: releaseme_test
+#  password: postgres
+  database: releaseme
+  password:
+
+production: # will be overwritten when deployed to heroku
+  encoding: unicode
+  adapter: postgresql
+  username: postgres
+  port: 5432
+  host: localhost
+#  database: releaseme_pro
+#  password: postgres
+  database: releaseme
+  password:
+
+cucumber:
+  <<: *test
