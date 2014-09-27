@@ -10,7 +10,8 @@ notifications:
 before_script:
   - mkdir -p shippable/testresults
   - psql -c 'create database releaseme;' -U postgres
+  - rake db:migrate
   # write the rspec tests to the output dir
-#script:
-#  - rspec -f JUnit -o shippable/testresults/results.xml
+script:
+  - rspec -o shippable/testresults/results.xml
 commit_container: tolomaus/releaseme
