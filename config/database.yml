@@ -4,8 +4,10 @@ development:
   username: postgres
   port: 5432
   host: localhost
-  database: releaseme_dev
-  password: postgres
+#  database: releaseme_dev
+#  password: postgres
+  database: releaseme
+  password:
 
 test: &test
   encoding: unicode
